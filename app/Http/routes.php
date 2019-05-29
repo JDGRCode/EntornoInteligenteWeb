@@ -11,9 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::resource('usuarios', 'UsuariosController');
 // Aca no le falta otra ruta?
+
+Route::resource('componentes','ComponentesController');
+Route::get('peliculas/{id}','PeliculaController@edit');
+
+

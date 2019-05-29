@@ -349,7 +349,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="../demo1/index.html">
+										<a href="/EntornoInteligenteWeb/public/componentes">
 										<i class="fas fa-puzzle-piece"></i>
 											<span class="sub-item">Estados / Componentes</span>
 										</a>
