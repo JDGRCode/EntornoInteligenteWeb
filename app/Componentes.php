@@ -9,12 +9,10 @@ class Componentes extends Model
     protected $table = "componentes";
     protected $primarykey = "Idcomp";
     public $timestamps = false;
-    protected $fillable = [
+    protected $fillable =[
+        'Idcomp',
         'Nombrecomp',
         'Idtipocomp',
-        'Idestado',
         'Idatrixtipo'
         ];
-        
-  
 }

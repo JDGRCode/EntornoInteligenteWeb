@@ -24,8 +24,8 @@
 		<th>ID </th>
 			<th>Nombre del componente </th>
 			<th>tipo de componente</th>
-			<th>estado del componente</th>
-			<th>estado del componentes2</th>
+			<th>atributos del componente</th>
+			
 			<th colspan="2">Accion</th>
 		</tr>
 	</thead>
@@ -36,8 +36,8 @@
 		<td>{{$componentes->Idcomp}}</td>
 			<td>{{$componentes->Nombrecomp}}</td>
 			<td>{{$componentes->Idtipocomp}}</td>
-			<td>{{$componentes->Idestado}}</td>
 			<td>{{$componentes->Idatrixtipo}}</td>
+			
 			<td><a href="{{ route('componentes.edit', $componentes->Idcomp) }}" class="btn btn-warning">Editar</a></td>
 			<td>
 				{!! Form::open(['method' => 'DELETE', 'route'=>['componentes.destroy', $componentes->Idcomp]]) !!}
