@@ -51,8 +51,8 @@ class ComponentesController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         } else {
-            componente::create($componente);
-            return redirect('componente');
+            Componentes::create($componente);
+            return redirect('componentes');
         }
     }
 
@@ -89,21 +89,22 @@ class ComponentesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nuevosComponente = $request->all();
+        $nuevosDatoscomponentes = $request->all();
         $componente = Componentes::find($id);
 
-        $validator = Validator::make($nuevosComponente,[
-            'Nombrecomp' => 'required|max:50',
-            'Idtipocomp' => 'required|max:50',
-            'Idestado' => 'required|max:50',
-            'Idatrixtipo' => 'required|max:50',
+        $validator = Validator::make($nuevosDatoscomponentes, [
+        'Nombrecomp' => 'required|max:50',
+        'Idtipocomp' => 'required|max:50',
+        'Idestado' => 'required|max:50',
+        'Idatrixtipo' => 'required|max:50',
+        
         ]);
-         if ($validator->fails()) {
-                 return back()->withErrors($validator)->withInput();
-            } else {           
-                $componente->update($nuevosComponente);
-                return redirect('componente');
-    }
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+       } else {           
+           $componente->update($nuevosDatoscomponentes);
+           return redirect('componentes');
+}
     }
 
     /**
@@ -115,6 +116,6 @@ class ComponentesController extends Controller
     public function destroy($id)
     {
         Componentes::find($id)->delete();
-        return redirect('Componentes');
+        return redirect('componentes');
     }
 }

@@ -21,6 +21,10 @@
     <div>
     {!! Form::open(['url' => 'componentes', 'files' => true]) !!}
     <div class="form-group">
+         {!! Form::label('id componente', 'id componente:') !!}
+         {!! Form::text('Idcomp',null,['class' => 'form-control', 'required' => 'required']) !!}
+    </div>
+    <div class="form-group">
          {!! Form::label('Nombre del componente', 'Nombre del componente:') !!}
          {!! Form::text('Nombrecomp',null,['class' => 'form-control', 'required' => 'required']) !!}
     </div>
@@ -29,13 +33,9 @@
          {!! Form::text('Idtipocomp',null,['class' => 'form-control', 'required' => 'required']) !!}
     </div>
     <div class="form-group">
-         {!! Form::label('estado del componente', 'estado del componente:') !!}
-        {!! Form::text('Idestado',null,['class'=>'form-control']) !!}
+         {!! Form::label('atributo del componente', 'atributo del componente:') !!}
+        {!! Form::text('Idatrixtipo',null,['class'=>'form-control']) !!}
     </div>
-    <div class="form-group">
-         {!! Form::label('otra cosa', 'Rol:') !!}
-         {!! Form::text('Idatrixtipo',null,['class' => 'form-control', 'required' => 'required']) !!}
-   
     <div class="form-group">
          {!! Form::submit('Guardar', ['class' => 'btn btn-primary form-control']) !!}
     </div>

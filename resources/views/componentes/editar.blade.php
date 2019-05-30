@@ -18,7 +18,7 @@
 		<div class="col-md-6 mx-auto">
 			<div class="card full-height">
 				<div class="card-body">
-        {!! Form::model($usuario, ['method' => 'PATCH', 'route' => ['componentes.update', $componentes->id], 'files' => true ]) !!}
+                    {!! Form::model($componentes, ['method' => 'PATCH', 'route' => ['componentes.update', $componentes->id], 'files' => true ]) !!}
         <div class="form-group">
              {!! Form::label('Nombre del componente', 'Nombre del componente:') !!}
             {!! Form::text('Nombrecomp',null,['class' => 'form-control', 'required' => 'required']) !!}
