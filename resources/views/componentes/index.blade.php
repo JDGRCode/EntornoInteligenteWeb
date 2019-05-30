@@ -36,7 +36,10 @@
 		<td>{{$componentes->Idcomp}}</td>
 			<td>{{$componentes->Nombrecomp}}</td>
 			<td>{{$componentes->Idtipocomp}}</td>
+
 			<td>{{$componentes->Idatrixtipo}}</td>
+
+			<td>{{$componentes->Idestado}}</td>
 			
 			<td><a href="{{ route('componentes.edit', $componentes->Idcomp) }}" class="btn btn-warning">Editar</a></td>
 			<td>
