@@ -37,6 +37,14 @@
         {!! Form::text('Idatrixtipo',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
+
+
+         {!! Form::label('otra cosa', 'otra cosa:') !!}
+         {!! Form::text('Idatrixtipo',null,['class' => 'form-control', 'required' => 'required']) !!}
+   
+    <div class="form-group">
+
+
          {!! Form::submit('Guardar', ['class' => 'btn btn-primary form-control']) !!}
     </div>
     {!! Form::close() !!}
