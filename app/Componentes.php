@@ -12,6 +12,11 @@ class Componentes extends Model
     protected $fillable =[
         'Idcomp',
         'Nombrecomp',
-        'Idtipocomp'
+        'Idtipocomp',
+        'Idestado',
+
         ];
+    
+
+   
 }

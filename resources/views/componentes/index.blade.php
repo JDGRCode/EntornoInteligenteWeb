@@ -23,10 +23,10 @@
 		<tr>
 		<th>ID </th>
 			<th>Nombre del componente </th>
-			<th colspan="2">tipo de componente</th>
+			<th >tipo de componente</th>
 			
 			
-		
+			<th colspan="2">estado del componente</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,6 +36,9 @@
 		<td>{{$componentes->Idcomp}}</td>
 			<td>{{$componentes->Nombrecomp}}</td>
 			<td>{{$componentes->Idtipocomp}}</td>
+			
+			
+		
 			
 			
 			
