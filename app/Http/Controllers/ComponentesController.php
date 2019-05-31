@@ -44,8 +44,7 @@ class ComponentesController extends Controller
         $validator = Validator::make($componente, [
         'Nombrecomp' => 'required|max:50',
         'Idtipocomp' => 'required|max:50',
-        'Idatrixtipo' => 'required|max:50',
-
+        
         
         ]);
         if ($validator->fails()) {
@@ -95,7 +94,7 @@ class ComponentesController extends Controller
         $validator = Validator::make($nuevosDatoscomponentes, [
             'Nombrecomp' => 'required|max:50',
             'Idtipocomp' => 'required|max:50',
-            'Idatrixtipo' => 'required|max:50',
+            
 
         
         ]);
