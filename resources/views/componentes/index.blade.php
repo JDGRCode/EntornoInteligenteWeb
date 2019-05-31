@@ -23,10 +23,10 @@
 		<tr>
 		<th>ID </th>
 			<th>Nombre del componente </th>
-			<th>tipo de componente</th>
+			<th colspan="2">tipo de componente</th>
 			
 			
-			<th colspan="2">Accion</th>
+		
 		</tr>
 	</thead>
 	<tbody>
@@ -38,10 +38,10 @@
 			<td>{{$componentes->Idtipocomp}}</td>
 			
 			
-			<td><a href="{{ route('componentes.edit', $componentes->Idcomp) }}" class="btn btn-warning">Editar</a></td>
+			
 			<td>
 				{!! Form::open(['method' => 'DELETE', 'route'=>['componentes.destroy', $componentes->Idcomp]]) !!}
-				{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+				
 				{!! Form::close() !!}
 			</td>
 		</tr>
