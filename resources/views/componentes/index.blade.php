@@ -24,7 +24,7 @@
 		<th>ID </th>
 			<th>Nombre del componente </th>
 			<th>tipo de componente</th>
-			<th>estado del componente</th>
+			
 			
 			<th colspan="2">Accion</th>
 		</tr>
@@ -36,7 +36,7 @@
 		<td>{{$componentes->Idcomp}}</td>
 			<td>{{$componentes->Nombrecomp}}</td>
 			<td>{{$componentes->Idtipocomp}}</td>
-			<td>{{$componentes->Idestado}}</td>
+			
 			
 			<td><a href="{{ route('componentes.edit', $componentes->Idcomp) }}" class="btn btn-warning">Editar</a></td>
 			<td>
