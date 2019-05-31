@@ -38,6 +38,7 @@
 			<td>{{$componentes->Idtipocomp}}</td>
 			<td>
 			@endforeach
+		
 				{!! Form::open(['method' => 'DELETE', 'route'=>['componentes.destroy', $componentes->Idcomp]]) !!}
 				
 				{!! Form::close() !!}
