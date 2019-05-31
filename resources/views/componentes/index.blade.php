@@ -31,24 +31,20 @@
 	</thead>
 	<tbody>
 		@foreach ($componentes as $componentes)
-
+		
 		<tr>
 		<td>{{$componentes->Idcomp}}</td>
 			<td>{{$componentes->Nombrecomp}}</td>
 			<td>{{$componentes->Idtipocomp}}</td>
-			
-			
-		
-			
-			
-			
 			<td>
+			@endforeach
 				{!! Form::open(['method' => 'DELETE', 'route'=>['componentes.destroy', $componentes->Idcomp]]) !!}
 				
 				{!! Form::close() !!}
 			</td>
 		</tr>
-		@endforeach
+		
+		
 	</tbody>
 </table>
 						</div>
