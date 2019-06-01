@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Componentes;
+
 use Validator;
 
 class ComponentesController extends Controller
@@ -17,9 +18,11 @@ class ComponentesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+
         $componentes = Componentes::all();
         return View('componentes.index', compact('componentes'));
+     
     }
 
     /**
@@ -44,6 +47,7 @@ class ComponentesController extends Controller
         $validator = Validator::make($componente, [
         'Nombrecomp' => 'required|max:50',
         'Idtipocomp' => 'required|max:50',
+
         
         
         ]);
@@ -53,6 +57,9 @@ class ComponentesController extends Controller
             Componentes::create($componente);
             return redirect('componentes');
         }
+
+        
+
     }
 
     /**
@@ -94,7 +101,7 @@ class ComponentesController extends Controller
         $validator = Validator::make($nuevosDatoscomponentes, [
             'Nombrecomp' => 'required|max:50',
             'Idtipocomp' => 'required|max:50',
-            
+         
 
         
         ]);
