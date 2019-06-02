@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Componentes extends Model
 {
     protected $table = "componentes";
-    protected $primarykey = "Idcomp";
+    protected $primarykey = "id";
     public $timestamps = false;
     protected $fillable =[
-        'Idcomp',
-        'Nombrecomp',
-        'Idtipocomp'
+        'nombrecomp',
+        'tipocomp_id',
+        'estado_id',
+        'atrixtipo_id'
 
         ];
     

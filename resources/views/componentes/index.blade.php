@@ -1,3 +1,5 @@
+
+<html>
 @extends('layout/plantilla')
 @section('content')
 <div class="panel-header bg-primary-gradient">
@@ -30,19 +32,19 @@
 		</tr>
 	</thead>
 	<tbody>
+	
 		@foreach ($componentes as $componentes)
 		
 		<tr>
-		<td>{{$componentes->Idcomp}}</td>
-			<td>{{$componentes->Nombrecomp}}</td>
-			<td>{{$componentes->Idtipocomp}}</td>
-			
-			
+		<td>{{$componentes->id}}</td>
+			<td>{{$componentes->nombrecomp}}</td>
+			<td>{{$componentes->tipocomp_id}}</td>
+			<td>{{$componentes->atrixtipo_id}}</td>
 			
 		
 			<td>
+			
 			@endforeach
-
 			
 
 			{!! Form::open(['method' => 'DELETE', 'route'=>['componentes.destroy', $componentes->Idcomp]]) !!}
@@ -61,3 +63,5 @@
 </div>
 
 @endsection
+
+</html>

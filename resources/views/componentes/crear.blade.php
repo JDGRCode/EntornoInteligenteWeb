@@ -21,16 +21,12 @@
     <div>
     {!! Form::open(['url' => 'componentes', 'files' => true]) !!}
     <div class="form-group">
-         {!! Form::label('id componente', 'id componente:') !!}
-         {!! Form::text('Idcomp',null,['class' => 'form-control', 'required' => 'required']) !!}
-    </div>
-    <div class="form-group">
          {!! Form::label('Nombre del componente', 'Nombre del componente:') !!}
-         {!! Form::text('Nombrecomp',null,['class' => 'form-control', 'required' => 'required']) !!}
+         {!! Form::text('nombrecomp',null,['class' => 'form-control', 'required' => 'required']) !!}
     </div>
     <div class="form-group">
          {!! Form::label('tipo de componente', 'tipo de componente:') !!}
-         {!! Form::text('Idtipocomp',null,['class' => 'form-control', 'required' => 'required']) !!}
+         {!! Form::text('tipocomp_id',null,['class' => 'form-control', 'required' => 'required']) !!}
     </div>
    
     
