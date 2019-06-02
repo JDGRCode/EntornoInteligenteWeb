@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('usuarios', 'UsuariosController');
+Route::resource('horarios', 'HorariosController');
 // Aca no le falta otra ruta?

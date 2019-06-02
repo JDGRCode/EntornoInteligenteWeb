@@ -1,15 +1,14 @@
 <?php
-// Este es el controlador
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Horario;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Usuario;
 use Validator;
 
-class UsuariosController extends Controller
+class HorariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,9 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::all();
-        return view('usuarios.index', compact('usuarios'));
+        $horarios = Horario::all(); 
+        return view('horarios.index', compact('horarios'));
+
     }
 
     /**
@@ -29,7 +29,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('usuarios.crear');
+        return view('horarios.crear');
     }
 
     /**
@@ -40,8 +40,8 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = $request->all();
-        $validator = Validator::make($usuario, [
+        $horarios = $request->all();
+        $validator = Validator::make($horarios, [
         'nomusuario' => 'required|max:50',
         'apeusuario' => 'required|max:50',
         'telefono' => 'required|max:50',
@@ -52,7 +52,7 @@ class UsuariosController extends Controller
             return back()->withErrors($validator)->withInput();
         } else {
             usuario::create($usuario);
-            return redirect('usuarios');
+            return redirect('horarios');
         }
     }
 
@@ -75,8 +75,7 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        $usuario = usuario::find($id);
-        return view('usuarios.editar', compact('usuario'));
+        //
     }
 
     /**
@@ -88,22 +87,9 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nuevosDatosUsuario = $request->all();
-        $usuario = usuario::find($id);
+        //
+    }
 
-        $validator = Validator::make($nuevosDatosUsuario,[
-            'nomusuario' => 'required|max:50',
-            'apeusuario' => 'required|max:50',
-            'telefono' => 'required|max:50',
-            'rol_id' => 'required|max:50',
-        ]);
-         if ($validator->fails()) {
-                 return back()->withErrors($validator)->withInput();
-            } else {           
-                $usuario->update($nuevosDatosUsuario);
-                return redirect('usuarios');
-    }
-    }
     /**
      * Remove the specified resource from storage.
      *
@@ -112,7 +98,6 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        usuario::find($id)->delete();
-        return redirect('usuarios');
+        //
     }
 }
