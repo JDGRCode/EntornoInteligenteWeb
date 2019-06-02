@@ -264,20 +264,14 @@
 										<div class="user-box">
 											<div class="avatar-lg"><img src="{{url('img/profile.jpg')}}" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4>Hizrian</h4>
-												<p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+												<h4>{{ Auth::user()->nomusuario }}</h4>
+												<p class="text-muted">{{ Auth::user()->email }} </p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
 									</li>
 									<li>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">My Profile</a>
-										<a class="dropdown-item" href="#">My Balance</a>
-										<a class="dropdown-item" href="#">Inbox</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Account Setting</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Logout</a>
+										<a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
 									</li>
 								</div>
 							</ul>
@@ -299,8 +293,14 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+									{{ Auth::user()->nomusuario }}
+									<span class="user-level">
+										@if (Auth::user()->rol_id == 1)
+											Administrador
+										@else
+											Usuario
+										@endif
+									</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -314,7 +314,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="#edit">
+										<a href="">
 											<span class="link-collapse">Edit Profile</span>
 										</a>
 									</li>
@@ -345,25 +345,25 @@
 									<li>
 										<a href="/EntornoInteligenteWeb/public/usuarios">
 										<i class="fas fa-user"></i>
-											<span class="sub-item">Clientes</span>
+											<span>Clientes</span>
 										</a>
 									</li>
 									<li>
 										<a href="../demo1/index.html">
 										<i class="fas fa-puzzle-piece"></i>
-											<span class="sub-item">Estados / Componentes</span>
+											<span>Estados / Componentes</span>
 										</a>
 									</li>
 									<li>
 										<a href="../demo2/index.html">
 										<i class="fas fa-id-badge"></i>
-											<span class="sub-item">Perfiles</span>
+											<span>Perfiles</span>
 										</a>
 									</li>
 									<li>
 										<a href="../demo2/index.html">
 										<i class="fas fa-calendar-alt"></i>
-											<span class="sub-item">Horarios</span>
+											<span>Horarios</span>
 										</a>
 									</li>
 								</ul>
@@ -1251,9 +1251,7 @@
 	<!-- Atlantis JS -->
 	<script src="{{url('js/atlantis.min.js')}}"></script>
 
-	<!-- Atlantis DEMO methods, don't include it in your project! -->
-	<script src="{{url('js/setting-demo.js')}}"></script>
-	<script src="{{url('js/demo.js')}}"></script>
+
 	<script>
 		Circles.create({
 			id:'circles-1',
