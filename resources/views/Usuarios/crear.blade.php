@@ -22,19 +22,25 @@
     {!! Form::open(['url' => 'usuarios', 'files' => true]) !!}
     <div class="form-group">
          {!! Form::label('Nombre', 'Nombre:') !!}
-         {!! Form::text('NomUsuario',null,['class' => 'form-control', 'required' => 'required']) !!}
+         {!! Form::text('nomusuario',null,['class' => 'form-control', 'required' => 'required']) !!}
     </div>
     <div class="form-group">
          {!! Form::label('Apellido', 'Apellido:') !!}
-         {!! Form::text('ApeUsuario',null,['class' => 'form-control', 'required' => 'required']) !!}
+         {!! Form::text('apeusuario',null,['class' => 'form-control', 'required' => 'required']) !!}
     </div>
     <div class="form-group">
          {!! Form::label('Telefono', 'Telefono:') !!}
-        {!! Form::text('Telefono',null,['class'=>'form-control']) !!}
+        {!! Form::text('telefono',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-         {!! Form::label('Rol', 'Rol:') !!}
-         {!! Form::text('IdRol',null,['class' => 'form-control', 'required' => 'required']) !!}
+         {!! Form::label('Email', 'Email:') !!}
+         {!! Form::text('email',null,['class' => 'form-control', 'required' => 'required']) !!}
+    </div>
+     
+     <div class="form-group">
+         {!! Form::label('Contraseña', 'Contraseña:') !!}
+         <input name="password" type="password" class="form-control" required>
+     </div>
    
     <div class="form-group">
          {!! Form::submit('Guardar', ['class' => 'btn btn-primary form-control']) !!}

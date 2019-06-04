@@ -8,7 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Usuario;
 use Validator;
-
+use Hash;
+use Auth;
 class UsuariosController extends Controller
 {
     /**
@@ -42,18 +43,26 @@ class UsuariosController extends Controller
     {
         $usuario = $request->all();
         $validator = Validator::make($usuario, [
-        'nomusuario' => 'required|max:50',
-        'apeusuario' => 'required|max:50',
-        'telefono' => 'required|max:50',
-        'rol_id' => 'required|max:50',
-        
+            'nomusuario' => 'required|max:50',
+            'apeusuario' => 'required|max:50',
+            'telefono' => 'required|max:50',
+            'password' => 'required|max:50',
+            'email' => 'required|max:150'
         ]);
-        if ($validator->fails()) {
+
+        if ($validator->fails()) 
             return back()->withErrors($validator)->withInput();
-        } else {
-            usuario::create($usuario);
-            return redirect('usuarios');
-        }
+
+        $usuario['password'] = Hash::make($usuario['password']);
+        $usuario['rol_id'] = 2;
+
+        // echo "<pre>";
+        // print_r($usuario);
+        // die;
+
+        usuario::create($usuario);
+        return redirect('usuarios');
+        
     }
 
     /**

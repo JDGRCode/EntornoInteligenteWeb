@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Horario extends Model
 {
+    public $timestamps = false;
+    protected $table = 'horarios';
     protected $fillable = [
         'id',
         'horainicio',
@@ -13,7 +15,8 @@ class Horario extends Model
         'perfiles_id'
         ];
 
-  public function x(){
-      return $this->belongsTo('App\Usuario');
-  }
+        public function Registro()
+        {
+            return $this->belongsToMany('App\registro');
+        }
 }

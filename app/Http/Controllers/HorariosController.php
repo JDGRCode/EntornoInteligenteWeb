@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Horario;
+use App\Usuario;
+use App\Perfil;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator;
@@ -29,7 +31,13 @@ class HorariosController extends Controller
      */
     public function create()
     {
-        return view('horarios.crear');
+       
+        $horarios = Usuario::all();
+         return view('horarios.crear',  compact('horarios'));
+
+        $horarios = Perfil::all();
+        return view('horarios.crear',  compact('horarios'));
+
     }
 
     /**
@@ -75,8 +83,27 @@ class HorariosController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+      $horarios = Horario::find($id);
+       return view('horarios.editar', compact('horarios'));
+     }
+
+        public function update(Request $request, $id)
+         { 
+             $nuevosDatosHorario = $request->all();
+              $horarios = Horario::find($id);
+        $validator = Validator::make($nuevosDatosHorario, [ 
+            'id'    => 'required|max:50', 
+            'horainicio'  => 'required|max:50', 
+            'horafin'    => 'required|max:50', 
+            'fechainicio' => 'required|max:50',
+               'fechafin'  => 'required|max:50', 
+               'diasemana'=> 'required|max:50'
+               ]);
+        
+        $horarios->update($nuevosDatosHorarios); return redirect('Horario');
+        }
+       
+    
 
     /**
      * Update the specified resource in storage.
@@ -85,10 +112,10 @@ class HorariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    //public function update(Request $request, $id)
+    //{
         //
-    }
+    //}
 
     /**
      * Remove the specified resource from storage.
@@ -98,6 +125,7 @@ class HorariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Horario::find($id)->delete();
+        return redirect('horarios');
     }
 }

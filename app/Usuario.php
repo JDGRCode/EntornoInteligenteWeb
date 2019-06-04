@@ -12,6 +12,8 @@ class Usuario extends Model
         'nomusuario',
         'apeusuario',
         'telefono',
+        'password',
+        'email',
         'rol_id'
         ];
 }

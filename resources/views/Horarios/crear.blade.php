@@ -35,14 +35,37 @@
     <div class="form-group">
          {!! Form::label('Cargo', 'Cargo:') !!}
          {!! Form::text('tipodeCargo',null,['class' => 'form-control', 'required' => 'required']) !!}
+
+     <div class="form-group">
+         {!! Form::label('instructor', 'instructor:') !!}
+         <select name="instructor" id="inputTipoId"class="form-control">
+          <option value="instructor">Seleccione</option>
+          @foreach ($horarios as $usuarios)
+          <option>{{$usuarios->nomusuario}}</option>
+          @endforeach
+          </select>
+      
+      <div class="form-group">
+          {!! Form::label('perfil', 'perfil:') !!}
+         <select name="tipo" id="inputTipoId" class="form-control">
+          <option value="perfil">Seleccione</option> 
+          @foreach ($horarios as $perfil)
+          <option>{{$perfil->id}}</option>
+          @endforeach
+          </select>
    
     <div class="form-group">
          {!! Form::submit('Guardar', ['class' => 'btn btn-primary form-control']) !!}
     </div>
+    
     {!! Form::close() !!}
     </div>
-			</div>
-		</div>
+    </div>
+    </div>	
 	</div>
+</div>
+</div>
+</div>
+</div>
 </div>
     @stop
