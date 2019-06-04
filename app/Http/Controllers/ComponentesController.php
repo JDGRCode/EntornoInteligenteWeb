@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Componentes;
+use App\Estados;
 use Validator;
 
 class ComponentesController extends Controller
@@ -18,9 +19,9 @@ class ComponentesController extends Controller
      */
     public function index()
     {   
-
+        $estados = Estados::all();
         $componentes = Componentes::all();
-        return View('componentes.index', compact('componentes'));
+        return View('componentes.index', compact('componentes','estados'));
      
     }
 

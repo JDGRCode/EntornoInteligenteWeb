@@ -2,6 +2,7 @@
 <html>
 @extends('layout/plantilla')
 @section('content')
+
 <div class="panel-header bg-primary-gradient">
 	<div class="page-inner py-5">
 		<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
@@ -23,36 +24,46 @@
 						<table class="table table-striped table-bordered table-hover">
 	<thead class="bg-primary text-white">
 		<tr>
-		<th>ID </th>
 			<th>Nombre del componente </th>
-			<th >tipo de componente</th>
-			
-			
-			<th colspan="2">estado del componente</th>
+			<th>estado del componente</th>
 		</tr>
 	</thead>
 	<tbody>
 	
 		@foreach ($componentes as $componentes)
-		
 		<tr>
-		<td>{{$componentes->id}}</td>
-			<td>{{$componentes->nombrecomp}}</td>
-			<td>{{$componentes->tipocomp_id}}</td>
-			<td>{{$componentes->atrixtipo_id}}</td>
-			
 		
+			<td>{{$componentes->nombrecomp}}</td>
 			<td>
+			</tr>
+		
 			
-			@endforeach
+			@endforeach 
+	
+	
+
+		@foreach ($estados as $estados)
+		<tr>
+
+		<td>{{$estados->estado}}<td>
+		</tr>	
+
+
+
+			@endforeach 
+
+				
+		
+					
+
+			
 			
 
 			{!! Form::open(['method' => 'DELETE', 'route'=>['componentes.destroy', $componentes->Idcomp]]) !!}
 				
 				{!! Form::close() !!}
-			</td>
-		</tr>
-		
+				</td>
+			</tr>	
 		
 	</tbody>
 </table>
