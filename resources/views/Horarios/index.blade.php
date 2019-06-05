@@ -10,7 +10,7 @@
 			<div class="ml-md-auto py-2 py-md-0">
 				<a href="{{url('/horarios/create')}}" class="btn btn-secondary btn-round">Crear Horarios</a>
 			</div>
-		</div>
+		wss</div>
 	</div>
 </div>
 
