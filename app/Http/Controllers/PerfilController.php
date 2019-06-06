@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Perfil;
+use Validator;
 class PerfilController extends Controller
 {
     /**
@@ -16,8 +17,8 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $perfiles = Perfil::all();
-        return view('perfiles.index', compact('perfiles'));
+        $perfil = Perfil::all();
+        return view('perfiles.index', compact('perfil'));
     }
 
     /**
@@ -27,7 +28,9 @@ class PerfilController extends Controller
      */
     public function create()
     {
-        //
+        $perfil = Perfil::all();
+       
+        return view('perfiles.crear',compact('perfil'));
     }
 
     /**
@@ -38,7 +41,18 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $perfil = $request->all();
+        $validator = Validator::make($perfil, [
+            'componentes_id',
+            'estados_id',
+            'usuarios_id',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } else {
+            Perfil::create($perfil);
+            return redirect('perfil');
+        }
     }
 
     /**
@@ -60,7 +74,8 @@ class PerfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        $perfil = Perfil::find($id);
+        return view('perfil.editar', compact('perfil'));
     }
 
     /**
@@ -72,7 +87,22 @@ class PerfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nuevosDatosperfil = $request->all();
+        $perfil = Perfil::find($id);
+
+        $validator = Validator::make($nuevosDatosperfil, [
+             'componentes_id',
+             'estados_id',
+             'usuarios_id',
+
+        
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+       } else {           
+           $perfil->update($nuevosDatosperfil);
+           return redirect('perfil');
+}
     }
 
     /**
@@ -83,6 +113,7 @@ class PerfilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Perfil::find($id)->delete();
+        return redirect('perfil');
     }
 }

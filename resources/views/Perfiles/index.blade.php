@@ -7,7 +7,7 @@
 				<h2 class="text-white pb-2 fw-bold">Usuarios</h2>
 			</div>
 			<div class="ml-md-auto py-2 py-md-0">
-				<a href="{{url('/usuarios/create')}}" class="btn btn-secondary btn-round">Crear usuarios</a>
+				<a href="{{url('/perfil/create')}}" class="btn btn-secondary btn-round">Crear Perfil</a>
 
 			</div>
 		</div>
@@ -21,29 +21,28 @@
 						<table class="table table-striped table-bordered table-hover">
 	<thead class="bg-primary text-white">
 		<tr>
-			<th>Nombre </th>
-			<th>Codigo</th>
-			<th>Preferencias</th>
+			<th>ID COMPONENTE</th>
+			<th>ID ESTADO</th>
+			<th>ID USUARIO</th>
 			<th colspan="2">Accion</th>
 		</tr>
 	</thead>
-	<!-- <tbody>
-		@foreach ($usuarios as $usuario)
+	<tbody>
+		@foreach ($perfil as $perfil)
 
 		<tr>
-			<td>{{$usuario->NomUsuario}}</td>
-			<td>{{$usuario->ApeUsuario}}</td>
-			<td>{{$usuario->Telefono}}</td>
-			<td>{{$usuario->IdRol}}</td>
-			<td><a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-warning">Editar</a></td>
+			<td>{{$perfil->componentes_id}}</td>
+			<td>{{$perfil->estados_id}}</td>
+			<td>{{$perfil->usuarios_id}}</td>
+			<td><a href="{{ route('perfil.edit', $perfil->id) }}" class="btn btn-warning">Editar</a></td>
 			<td>
-				{!! Form::open(['method' => 'DELETE', 'route'=>['usuarios.destroy', $usuario->id]]) !!}
+				{!! Form::open(['method' => 'DELETE', 'route'=>['perfil.destroy', $perfil->id]]) !!}
 				{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 				{!! Form::close() !!}
 			</td>
 		</tr>
 		@endforeach
-	</tbody> -->
+	</tbody> 
 </table>
 						</div>
 			</div>
