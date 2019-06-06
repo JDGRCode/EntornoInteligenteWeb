@@ -11,7 +11,7 @@
 
 			</div>
 		</div>
-	
+		</div>
 </div>
 <div class="page-inner mt--5">
 	<div class="col mt--2">
