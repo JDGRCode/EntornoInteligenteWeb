@@ -45,7 +45,7 @@ class PerfilController extends Controller
         $validator = Validator::make($perfil, [
             'componentes_id',
             'estados_id',
-            'usuarios_id',
+            'usuario_id',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -93,7 +93,7 @@ class PerfilController extends Controller
         $validator = Validator::make($nuevosDatosperfil, [
              'componentes_id',
              'estados_id',
-             'usuarios_id',
+             'usuario_id',
 
         
         ]);

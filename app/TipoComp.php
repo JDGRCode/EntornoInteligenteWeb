@@ -4,16 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Perfil extends Model
+class TipoComp extends Model
 {
-    protected $table = "perfiles";
+    protected $table = "tipocomp";
     protected $primarykey = "id";
     public $timestamps = false;
     protected $fillable =[
-        'componentes_id',
-        'estados_id',
-        'usuario_id',
-
+    	'id',
+        'nomcomp'
 
         ];
 }

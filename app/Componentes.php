@@ -4,16 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Perfil extends Model
+class Componentes extends Model
 {
-    protected $table = "perfiles";
+    protected $table = "componentes";
     protected $primarykey = "id";
     public $timestamps = false;
     protected $fillable =[
-        'componentes_id',
-        'estados_id',
-        'usuario_id',
-
+        'nombrecomp',
+        'tipocomp_id',
+        'estado_id',
+        'atrixtipo_id'
 
         ];
+    
+
+   
 }

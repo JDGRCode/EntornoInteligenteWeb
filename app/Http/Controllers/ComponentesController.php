@@ -1,15 +1,17 @@
 <?php
-// Este es el controlador
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Usuario;
+use App\Componentes;
+use App\Estados;
+use App\Tipocomp;
 use Validator;
 
-class UsuariosController extends Controller
+class ComponentesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +19,12 @@ class UsuariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $usuarios = Usuario::all();
-        return view('usuarios.index', compact('usuarios'));
+    {   
+        $tipocomp = Tipocomp::all();
+        $estados = Estados::all();
+        $componentes = Componentes::all();
+        return View('componentes.index', compact('componentes','estados'));
+     
     }
 
     /**
@@ -29,7 +34,9 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('usuarios.crear');
+        $tipocomp = Tipocomp::lists('nomcomp');
+        $componentes = Componentes::lists('tipocomp_id');
+        return view('componentes.crear',compact('componentes','tipocomp'));
     }
 
     /**
@@ -40,20 +47,24 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = $request->all();
-        $validator = Validator::make($usuario, [
-        'NomUsuario' => 'required|max:50',
-        'ApeUsuario' => 'required|max:50',
-        'Telefono' => 'required|max:50',
-        'IdRol' => 'required|max:50',
+        $componente = $request->all();
+        $validator = Validator::make($componente, [
+            'nombrecomp' => 'required|max:20',
+            'tipocomp_id' => 'required|max:20',
+            // 'estado_id',
+            // 'atrixtipo_id'
         
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         } else {
-            usuario::create($usuario);
-            return redirect('usuarios');
+            Componentes::create($componente);
+            return redirect('componentes');
         }
+
+        
+        
+
     }
 
     /**
@@ -75,8 +86,9 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        $usuario = usuario::find($id);
-        return view('usuarios.editar', compact('usuario'));
+        
+        $componentes = Componentes::find($id);
+        return view('componentes.editar', compact('componentes'));
     }
 
     /**
@@ -88,22 +100,25 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nuevosDatosUsuario = $request->all();
-        $usuario = usuario::find($id);
+        $nuevosDatoscomponentes = $request->all();
+        $componente = Componentes::find($id);
 
-        $validator = Validator::make($nuevosDatosUsuario,[
-            'NomUsuario' => 'required|max:50',
-            'ApeUsuario' => 'required|max:50',
-            'Telefono' => 'required|max:50',
-            'IdRol' => 'required|max:50',
+        $validator = Validator::make($nuevosDatoscomponentes, [
+            'nombrecomp' => 'required|max:50',
+            'tipocomp_id' => 'required|max:50',
+            'estado_id',
+            'atrixtipo_id'
+
+        
         ]);
-         if ($validator->fails()) {
-                 return back()->withErrors($validator)->withInput();
-            } else {           
-                $usuario->update($nuevosDatosUsuario);
-                return redirect('usuarios');
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+       } else {           
+           $componente->update($nuevosDatoscomponentes);
+           return redirect('componentes');
+}
     }
-    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -112,7 +127,7 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        usuario::find($id)->delete();
-        return redirect('usuarios');
+        Componentes::find($id)->delete();
+        return redirect('componentes');
     }
 }
