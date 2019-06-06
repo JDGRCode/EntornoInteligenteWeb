@@ -20,5 +20,5 @@ Route::resource('usuarios', 'UsuariosController');
 // Aca no le falta otra ruta?
 
 Route::resource('componentes','ComponentesController');
-
+Route::resource('perfil','PerfilController');
 

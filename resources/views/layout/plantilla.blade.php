@@ -355,7 +355,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="../demo2/index.html">
+										<a href="/EntornoInteligenteWeb/public/perfil">
 										<i class="fas fa-id-badge"></i>
 											<span class="sub-item">Perfiles</span>
 										</a>
